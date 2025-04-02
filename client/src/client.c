@@ -9,27 +9,31 @@ int main(void)
 	char* puerto;
 	char* valor;
 
+	
+
 	t_log* logger;
 	t_config* config;
 
 	/* ---------------- LOGGING ---------------- */
-
+	
 	logger = iniciar_logger();
+	logger = log_create("tp0.log","tp0",true,2);
 
 	// Usando el logger creado previamente
 	// Escribi: "Hola! Soy un log"
-
-
+	log_info(logger,"Soy un Log");
+	
 	/* ---------------- ARCHIVOS DE CONFIGURACION ---------------- */
 
 	config = iniciar_config();
+	config = config_create();
 
 	// Usando el config creado previamente, leemos los valores del config y los 
 	// dejamos en las variables 'ip', 'puerto' y 'valor'
 
 	// Loggeamos el valor de config
 
-
+	log_destroy(logger);
 	/* ---------------- LEER DE CONSOLA ---------------- */
 
 	leer_consola(logger);
